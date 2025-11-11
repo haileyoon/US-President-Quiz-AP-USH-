@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Presidents Quiz - Part 1</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>US Presidents Quiz - Part 1</h1>
+            <p class="subtitle">Test your knowledge of all 47 U.S. Presidents</p>
+        </header>
+       
+        <div class="quiz-header">
+            <div class="header-label num-header">#</div>
+            <div class="header-label">First Name (only add middle name or initials when necessary)</div>
+            <div class="header-label">Last Name</div>
+            <div class="header-label">Term Start</div>
+            <div class="header-label">Term End</div>
+            <div class="header-label hint-header">Actions</div>
+        </div>
+       
+        <div class="quiz-container">
+            {% for num, first, last, start, end in presidents %}
+            <div class="quiz-row">
+                <div class="president-num">#{{ num }}</div>
+                <input type="text"
+                       class="input-field"
+                       data-num="{{ num }}"
+                       data-field="first"
+                       placeholder="First"
+                       autocomplete="off">
+                <input type="text"
+                       class="input-field"
+                       data-num="{{ num }}"
+                       data-field="last"
+                       placeholder="Last"
+                       autocomplete="off">
+                <input type="text"
+                       class="input-field year-field"
+                       data-num="{{ num }}"
+                       data-field="start"
+                       placeholder="Year"
+                       autocomplete="off">
+                <input type="text"
+                       class="input-field year-field"
+                       data-num="{{ num }}"
+                       data-field="end"
+                       placeholder="Year"
+                       autocomplete="off">
+                <div class="action-buttons">
+                    <button class="idk-btn" data-num="{{ num }}" title="I don't know - show answer">IDK</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+   
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
