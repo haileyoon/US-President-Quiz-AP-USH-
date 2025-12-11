@@ -63,6 +63,7 @@ document.querySelectorAll('.idk-btn').forEach(button => {
         inputs[1].value = data.last;
         inputs[2].value = data.start;
         inputs[3].value = data.end;
+        inputs[4].value = data.party;
 
         inputs.forEach(input => {
             input.classList.remove('correct', 'incorrect');
