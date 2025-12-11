@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>US Presidents Quiz - Part 1</title>
+    <title>US Presidents Quiz - Part 2</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>US Presidents Quiz - Part 1</h1>
+            <h1>US Presidents Quiz - Part 2</h1>
             <p class="subtitle">Test your knowledge of all 47 U.S. Presidents</p>
         </header>
        
@@ -20,37 +20,19 @@
             <div class="header-label">Last Name</div>
             <div class="header-label">Term Start</div>
             <div class="header-label">Term End</div>
+            <div class="header-label">Party</div>
             <div class="header-label hint-header">Actions</div>
         </div>
        
         <div class="quiz-container">
-            {% for num, first, last, start, end in presidents %}
+            {% for num, first, last, start, end, party in presidents %}
             <div class="quiz-row">
                 <div class="president-num">#{{ num }}</div>
-                <input type="text"
-                       class="input-field"
-                       data-num="{{ num }}"
-                       data-field="first"
-                       placeholder="First"
-                       autocomplete="off">
-                <input type="text"
-                       class="input-field"
-                       data-num="{{ num }}"
-                       data-field="last"
-                       placeholder="Last"
-                       autocomplete="off">
-                <input type="text"
-                       class="input-field year-field"
-                       data-num="{{ num }}"
-                       data-field="start"
-                       placeholder="Year"
-                       autocomplete="off">
-                <input type="text"
-                       class="input-field year-field"
-                       data-num="{{ num }}"
-                       data-field="end"
-                       placeholder="Year"
-                       autocomplete="off">
+                <input type="text" class="input-field" data-num="{{ num }}" data-field="first" placeholder="First">
+                <input type="text" class="input-field" data-num="{{ num }}" data-field="last" placeholder="Last">
+                <input type="text" class="input-field year-field" data-num="{{ num }}" data-field="start" placeholder="Year">
+                <input type="text" class="input-field year-field" data-num="{{ num }}" data-field="end" placeholder="Year">
+                <input type="text" class="input-field" data-num="{{ num }}" data-field="party" placeholder="Party">
                 <div class="action-buttons">
                     <button class="idk-btn" data-num="{{ num }}" title="I don't know - show answer">IDK</button>
                 </div>
