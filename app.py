@@ -54,6 +54,7 @@ presidents = [
 
 correct_answers = {}
 original_names = {}
+
 def normalize_name(s):
     return s.lower().strip().replace('.', '').replace('  ', ' ')
 
@@ -81,6 +82,7 @@ for p in presidents:
         'party': party
     }
 
+
 @app.route('/')
 def index():
     return render_template('index.html', presidents=presidents)
@@ -89,11 +91,11 @@ def index():
 @app.route('/validate', methods=['POST'])
 def validate():
     data = request.json
-    num = int(data.get('num'))
+    num = int(data.get('num'))  # Convert to int
     field = data.get('field')
     user_input = data.get('value', '')
     if num not in correct_answers:
-        print(f"Invalid num: {num}")
+        print(f"Invalid num: {num}")  # Debug
         return jsonify({'valid': False})
     expected = correct_answers[num][field]
     if field in ['start', 'end']:
@@ -103,7 +105,7 @@ def validate():
     print(f"Comparing user_norm: '{user_norm}' with expected: '{expected}'"
           )  # Debug
     is_valid = user_norm == expected
-    print(f"Validation result: {is_valid}")
+    print(f"Validation result: {is_valid}")  # Debug
     return jsonify({'valid': is_valid})
 
 
@@ -115,7 +117,7 @@ def get_answer(num):
             'first': answers['first'],
             'last': answers['last'],
             'start': answers['start'],
-            'end': answers['end']
+            'end': answers['end'],
             'party': answers['party']
         })
     return jsonify({'error': 'No answer available'})
