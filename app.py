@@ -3,12 +3,12 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
 presidents = [
-    (1, "George", "Washington", "1789", "1797", "Independent"),
+    (1, "George", "Washington", "1789", "1797", "No party"),
     (2, "John", "Adams", "1797", "1801", "Federalist"),
     (3, "Thomas", "Jefferson", "1801", "1809", "Democratic-Republican"),
     (4, "James", "Madison", "1809", "1817", "Democratic-Republican"),
     (5, "James", "Monroe", "1817", "1825", "Democratic-Republican"),
-    (6, "John Quincy", "Adams", "1825", "1829", "Democratic-Republican"),
+    (6, "John Quincy", "Adams", "1825", "1829", "National Republican"),
     (7, "Andrew", "Jackson", "1829", "1837", "Democratic"),
     (8, "Martin", "Van Buren", "1837", "1841", "Democratic"),
     (9, "William", "Harrison", "1841", "1841", "Whig"),
@@ -19,7 +19,7 @@ presidents = [
     (14, "Franklin", "Pierce", "1853", "1857", "Democratic"),
     (15, "James", "Buchanan", "1857", "1861", "Democratic"),
     (16, "Abraham", "Lincoln", "1861", "1865", "Republican"),
-    (17, "Andrew", "Johnson", "1865", "1869", "National Union"),
+    (17, "Andrew", "Johnson", "1865", "1869", "Republican"),
     (18, "Ulysses", "Grant", "1869", "1877", "Republican"),
     (19, "Rutherford", "Hayes", "1877", "1881", "Republican"),
     (20, "James", "Garfield", "1881", "1881", "Republican"),
